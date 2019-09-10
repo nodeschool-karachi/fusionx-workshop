@@ -1,6 +1,8 @@
 import { Injectable } from '@nestjs/common';
-import { RandomData } from 'src/models/random-data';
-import { Random } from 'mockjs';
+
+// uncomment the lines below
+// import { RandomData } from 'src/models/random-data';
+// import { Random } from 'mockjs';
 
 @Injectable()
 export class RandomService {
