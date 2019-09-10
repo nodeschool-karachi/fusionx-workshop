@@ -24,6 +24,7 @@
     "@nestjs/microservices": "^6.5.3",
     "@nestjs/platform-express": "^6.5.3",
     "@nestjs/websockets": "^6.5.3",
+    "mockjs": "^1.0.1-beta3",
     "reflect-metadata": "0.1.13",
     "rimraf": "3.0.0",
     "rxjs": "6.5.2"
