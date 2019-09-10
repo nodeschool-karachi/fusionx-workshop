@@ -1,29 +1,34 @@
-import { Module } from '@nestjs/common';
+import {
+  Module,
+  // uncomment the module import below
+  // NestModule,
+  // uncomment the module import below
+  // MiddlewareConsumer,
+} from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { RandomModule } from './random/random.module';
 
-// remove RandomController import
-import { RandomController } from './random/random.controller';
-// remove RandomService import
-import { RandomService } from './random/random.service';
-
-// uncomment the line below
-// import { RandomModule } from './random/random.module';
+// uncomment the LoggerMiddleWare import below
+// import { LoggerMiddleware } from './common/middleware/logger.midleware';
 
 @Module({
   imports: [
-    // uncomment the line below
-    // RandomModule,
+    RandomModule,
   ],
   controllers: [
     AppController,
-    // remove RandomController entry
-    RandomController,
   ],
   providers: [
     AppService,
-    // remove RandomService entry
-    RandomService,
   ],
 })
-export class AppModule {}
+export class AppModule /* implements NestModule */ {
+
+  // uncomment the code chunk below
+  // configure(consumer: MiddlewareConsumer) {
+  //   consumer
+  //     .apply(LoggerMiddleware)
+  //     .forRoutes(RandomController);
+  // }
+}
