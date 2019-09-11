@@ -12,6 +12,9 @@ import { RandomModule } from './random/random.module';
 // uncomment the LoggerMiddleWare import below
 // import { LoggerMiddleware } from './common/middleware/logger.midleware';
 
+// uncomment the RandomController import below
+// import { RandomController } from './random/random.controller';
+
 @Module({
   imports: [
     RandomModule,
