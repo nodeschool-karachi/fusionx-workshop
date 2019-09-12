@@ -1,23 +1,22 @@
 import {
   Module,
-  // uncomment the module import below
-  // NestModule,
-  // uncomment the module import below
-  // MiddlewareConsumer,
+  NestModule,
+  MiddlewareConsumer,
 } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { RandomModule } from './random/random.module';
-
-// uncomment the LoggerMiddleWare import below
-// import { LoggerMiddleware } from './common/middleware/logger.midleware';
-
-// uncomment the RandomController import below
-// import { RandomController } from './random/random.controller';
+import { LoggerMiddleware } from './common/middleware/logger.midleware';
+import { RandomController } from './random/random.controller';
+import { ServeStaticModule } from '@nestjs/serve-static';
+import { join } from 'path';
 
 @Module({
   imports: [
     RandomModule,
+    ServeStaticModule.forRoot({
+      rootPath: join(__dirname, '..', 'client/public'),
+    }),
   ],
   controllers: [
     AppController,
@@ -26,12 +25,10 @@ import { RandomModule } from './random/random.module';
     AppService,
   ],
 })
-export class AppModule /* implements NestModule */ {
-
-  // uncomment the code chunk below
-  // configure(consumer: MiddlewareConsumer) {
-  //   consumer
-  //     .apply(LoggerMiddleware)
-  //     .forRoutes(RandomController);
-  // }
+export class AppModule implements NestModule {
+  configure(consumer: MiddlewareConsumer) {
+    consumer
+      .apply(LoggerMiddleware)
+      .forRoutes(RandomController);
+  }
 }

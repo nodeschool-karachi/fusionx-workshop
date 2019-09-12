@@ -5,9 +5,8 @@ import { Request, Response } from 'express';
 export class LoggerMiddleware implements NestMiddleware {
   use(req: Request, res: Response, next: Function) {
 
-    // uncomment the logs below
-    // console.log(`Request URL = ${req.url}`);
-    // console.log(`Request METHOD = ${req.method}`);
+    console.log(`Request URL = ${req.url}`);
+    console.log(`Request METHOD = ${req.method}`);
     next();
   }
 }
