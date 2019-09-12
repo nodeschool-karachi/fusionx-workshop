@@ -34,7 +34,16 @@
 $ npm install
 ```
 
-## Running the app
+## Initial setup
+
+```bash
+cd client && npm install
+cd ..
+npm run build:client
+npm run serve:both
+```
+
+## Running the server
 
 ```bash
 # development
@@ -45,6 +54,15 @@ $ npm run start:dev
 
 # production mode
 $ npm run start:prod
+```
+
+## Running SERVER and CLIENT both
+
+```bash
+# RUN SERVER AND CLIENT BOTH IN WATCH MODE
+$ npm run serve:both
+
+# server will run on port 5000, client will run on port 3000
 ```
 
 ## Test
