@@ -28,10 +28,8 @@ export const getMessage = () =>
       // Note: it's important to handle errors here
       // instead of a catch() block so that we don't swallow
       // exceptions from actual bugs in components.
+      // For the workshop I am just logging the error.
       error => {
-        this.setState({
-          isLoaded: true,
-          error,
-        });
+        console.log(error);
       },
     );
