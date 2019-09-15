@@ -1,0 +1,22 @@
+.streaming-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -215px 0 0 -230px;
+  width: 500px;
+  height: 500px;
+  padding: 25px;
+  // box-shadow: 0 0 100px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  background: #ffffff;
+  box-shadow: 0 2px 16px 0 rgba(0, 0, 0, 0.04);
+  border-radius: 12px;
+  padding-top: 15px;
+  font-family: Lato;
+  &__button-container {
+    justify-content: flex-end;
+    align-items: flex-end;
+    height: 60px;
+    flex-direction: column;
+  }
+}

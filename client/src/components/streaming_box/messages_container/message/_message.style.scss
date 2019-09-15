@@ -1,0 +1,49 @@
+.message {
+  &__card {
+    display: flex;
+    height: 90px;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+    background: #ffffff;
+    box-shadow: 0 2px 16px 0 rgba(0, 0, 0, 0.04);
+    border-radius: 12px;
+    font-family: Lato;
+    font-size: 18px;
+    color: #000000;
+    text-align: center;
+    opacity: 0.6;
+    font-family: Lato;
+    font-size: 18px;
+    color: #000000;
+    padding: 0px 10px;
+    margin: 5px 0px;
+    transition: $g-trans-base;
+    &:hover {
+      background: #fdf8f8;
+    }
+  }
+  &__content-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  &__avatar {
+    width: 60px;
+    img {
+      height: 50px;
+      width: 50px;
+      border-radius: 40px;
+    }
+  }
+  &__name {
+    font-size: 15px;
+    font-weight: 600;
+    margin: 0px 3px;
+  }
+  &__content {
+    font-size: 15px;
+    margin: 0px 3px;
+  }
+}

@@ -1,0 +1,12 @@
+.streaming-box {
+  &__messages-container {
+    height: 350px;
+  }
+  &__messages-list {
+    overflow: scroll;
+    padding: 10px;
+    position: relative;
+    height: 350px;
+    background: #f8f8f8;
+  }
+}
