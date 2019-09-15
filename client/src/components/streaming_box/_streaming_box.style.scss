@@ -8,11 +8,11 @@
   padding: 25px;
   // box-shadow: 0 0 100px rgba(0, 0, 0, 0.08);
   overflow: hidden;
-  background: #ffffff;
+  background: $g-white;
   box-shadow: 0 2px 16px 0 rgba(0, 0, 0, 0.04);
   border-radius: 12px;
   padding-top: 15px;
-  font-family: Lato;
+  font-family: $g-font-family;
   &__button-container {
     justify-content: flex-end;
     align-items: flex-end;
