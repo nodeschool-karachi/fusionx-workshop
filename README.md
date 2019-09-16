@@ -1,49 +1,47 @@
 <p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="320" alt="Nest Logo" /></a>
+  <a href="https://www.facebook.com/events/977760955910519/" target="blank"><img src="https://scontent.fkhi1-1.fna.fbcdn.net/v/t1.0-9/69528317_3752662151426450_5223547445962604544_n.jpg?_nc_cat=102&_nc_eui2=AeEUuozhzroOHaQ17OJSTqUzGUvRJmCl87pz2W06D_h0cS5z8tK72KfDKZZOvhQFFF15uPQw0myOXmLqH7k9dGLJl69WS3IvoFx_87Qb_ONgkw&_nc_oc=AQnHJ-_3OWCMjSA7mV3r51z39Z2Fdw7FUZ9To_KcIlQrFkmB6ZLI8zfNeYtayA8uBkA&_nc_ht=scontent.fkhi1-1.fna&oh=a34a8c3bb99ce78609e4841fda49d2af&oe=5E375C97" alt="FusionX Workshop Image" /></a>
 </p>
 
-[travis-image]: https://api.travis-ci.org/nestjs/nest.svg?branch=master
-[travis-url]: https://travis-ci.org/nestjs/nest
-[linux-image]: https://img.shields.io/travis/nestjs/nest/master.svg?label=linux
-[linux-url]: https://travis-ci.org/nestjs/nest
-  
-  <p align="center">A progressive <a href="http://nodejs.org" target="blank">Node.js</a> framework for building efficient and scalable server-side applications, heavily inspired by <a href="https://angular.io" target="blank">Angular</a>.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore"><img src="https://img.shields.io/npm/dm/@nestjs/core.svg" alt="NPM Downloads" /></a>
-<a href="https://travis-ci.org/nestjs/nest"><img src="https://api.travis-ci.org/nestjs/nest.svg?branch=master" alt="Travis" /></a>
-<a href="https://travis-ci.org/nestjs/nest"><img src="https://img.shields.io/travis/nestjs/nest/master.svg?label=linux" alt="Linux" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#5" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec"><img src="https://img.shields.io/badge/Donate-PayPal-dc3d53.svg"/></a>
-  <a href="https://twitter.com/nestframework"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+The repository contains content/code for [the workshop happening at The NEST IO on 21st September 2019](https://www.facebook.com/events/977760955910519/). It covers the basics of NestJS. We'll also be covering some interesting info about React Hooks and when to use them.
 
-## Installation
+This is a collaborative initiative of ReactKHI and NodeSchool Karachi.
+
+## Installation & Initial Setup
+
+Please install [Git](https://git-scm.com/downloads) & [NodeJS](https://nodejs.org/en/download/) in your machine. Once done, open your terminal/command prompt & make sure you are at the root of this project. Then run the commands below:
+
+### Clone the repo
 
 ```bash
-$ npm install
+git clone https://github.com/nodeschool-karachi/fusionx-workshop.git  # clone the repository
+
+cd ./fusionx-workshop  # navigate to project folder
 ```
 
-## Initial setup
+### Install dependencies
 
 ```bash
-cd client && npm install
-cd ..
-npm run build:client
+npm install # install nestjs dependencies
+
+cd client # cd into the client folder
+npm install # install react app dependencies
+
+cd .. # go back to project's root
+```
+
+## Running NestJS server and React app together
+Make sure you're at the project's root
+```bash
 npm run serve:both
+
+# starts both the client (React) and server (NestJS) apps in watch mode
+# the react app runs at port 3000 while the nestjs server runs at 5000
 ```
 
-## Running the server
+## Running NestJS server only
 
 ```bash
 # development
@@ -56,16 +54,7 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
-## Running SERVER and CLIENT both
-
-```bash
-# RUN SERVER AND CLIENT BOTH IN WATCH MODE
-$ npm run serve:both
-
-# server will run on port 5000, client will run on port 3000
-```
-
-## Test
+## Running NestJS tests
 
 ```bash
 # unit tests
@@ -78,16 +67,22 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
 ## Stay in touch
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+### Organizers
+- NodeSchool Karachi
+  - [Muhammad Ahsan Ayaz](https://github.com/ahsanayaz)
+- ReactKHI
+  - [Taley'a Mirza](https://github.com/Taleymirza)
+  - [Mashhood Rastgar](https://github.com/mashhoodr)
 
-## License
+### Speakers
+- [Mohammad Quanit](https://github.com/Mohammad-Quanit)
+- [Faheem Akhtar](https://github.com/mfaheemakhtar)
+- [Shah Nawaz](https://github.com/dev-sna)
+- [Alqama Bin Sadiq](https://github.com/alqamabinsadiq)
+- [Afnan Amin Ali](https://www.linkedin.com/in/afnan-amin-a49509151/)
 
-  Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+### Mentors
+- [Zainab Saleem Khan](https://github.com/ZenabKhan) (Mentor and Advisor)
+- [See the complete list of all the amazing mentors here](https://github.com/nodeschool/karachi/issues/13)
