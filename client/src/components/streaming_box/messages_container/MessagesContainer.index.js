@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Message from './message/Message.index';
 import { getMessage } from '../../../utils/getMessages';
 
@@ -7,7 +7,7 @@ const Chat = ({ isStreaming }) => {
   const [messages, setMessages] = useState([]);
 
   //  Ref of ul
-  const ulRef = React.createRef();
+  const ulRef = useRef(null);
 
   useEffect(() => {
     // Set Interval
@@ -38,7 +38,7 @@ const Chat = ({ isStreaming }) => {
         current.scrollTop = current.scrollHeight;
       }
     }
-  }, [ulRef]);
+  }, [messages]);
 
   // fetch the new messages.
   const generateMessage = async () => {
