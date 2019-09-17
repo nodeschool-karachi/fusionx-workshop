@@ -1,99 +1,74 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import Message from './message/Message.index';
 import { getMessage } from '../../../utils/getMessages';
 
-class Chat extends Component {
+const Chat = ({ isStreaming }) => {
   // Initial State.
-  state = {
-    messages: [],
-    isStreaming: this.props.isStreaming,
-  };
+  const [messages, setMessages] = useState([]);
 
-  componentDidMount() {
+  //  Ref of ul
+  const ulRef = React.createRef();
+
+  useEffect(() => {
     // Set Interval
-    this.timerID = setInterval(async () => {
-      if (this.state.isStreaming) {
-        try {
-          const message = await getMessage();
-          this.setState(prevState => ({
-            messages: [...prevState.messages, message],
-          }));
-        } catch (error) {
-          console.log(error);
-        }
+    const timerID = setInterval(async () => {
+      if (isStreaming) {
+        generateMessage();
       }
     }, 1000);
 
     // Add listener
-    document.addEventListener('keydown', this.handleKey);
-  }
+    document.addEventListener('keydown', handleKey);
 
-  static getDerivedStateFromProps(props, state) {
-    if (props.isStreaming !== state.isStreaming) {
-      return {
-        isStreaming: props.isStreaming,
-      };
-    }
-    return null;
-  }
-
-  getSnapshotBeforeUpdate(prevProps, prevState) {
-    const { current } = this.ulRef;
-    return {
-      shouldAutoScroll:
-        current.scrollTop + current.clientHeight >= current.scrollHeight,
+    /**
+     * Cleanup function
+     */
+    return () => {
+      clearInterval(timerID);
+      document.removeEventListener('keydown', handleKey);
     };
-  }
+  });
 
-  componentDidUpdate(prevProps, prevState, { shouldAutoScroll }) {
-    if (shouldAutoScroll) {
-      const { current } = this.ulRef;
-      current.scrollTop = current.scrollHeight;
+  useEffect(() => {
+    if (ulRef) {
+      const { current } = ulRef;
+      const shouldAutoScroll =
+        current.scrollTop + current.clientHeight <= current.scrollHeight;
+      if (shouldAutoScroll) {
+        current.scrollTop = current.scrollHeight;
+      }
     }
-  }
-
-  componentWillUnmount() {
-    clearInterval(this.timerID);
-    document.removeEventListener('keydown', this.handleKey);
-  }
+  }, [ulRef]);
 
   // fetch the new messages.
-  // generateMessage = async () => {
-  //   try {
-  //     const message = await getMessage();
-  //     this.setState(prevState => ({
-  //       messages: [...prevState.messages, message],
-  //     }));
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
-
-  // Handles the keystroke.
-  handleKey = e => {
-    if (e.key === 'c') {
-      this.setState({ messages: [] });
+  const generateMessage = async () => {
+    try {
+      const message = await getMessage();
+      setMessages(prevMessages => [...prevMessages, message]);
+    } catch (error) {
+      console.log(error);
     }
   };
 
-  //  Ref of ul
-  ulRef = React.createRef();
+  // Handles the keystroke.
+  const handleKey = e => {
+    if (e.key === 'c') {
+      setMessages([]);
+    }
+  };
 
-  // Main Render
-  render() {
-    return (
-      <div className="streaming-box__messages-container l-container l-container--full-width">
-        <ul ref={this.ulRef} className="streaming-box__messages-list">
-          {this.state.messages.map((message, index) => {
-            return <Message {...message} key={index} />;
-          })}
-          {this.state.messages.length === 0 && (
-            <div className="streaming-box__messages-list--empty">No data</div>
-          )}
-        </ul>
-      </div>
-    );
-  }
-}
+  return (
+    <div className="streaming-box__messages-container l-container l-container--full-width">
+      <ul ref={ulRef} className="streaming-box__messages-list">
+        {messages.map((message, index) => {
+          return <Message {...message} key={index} />;
+        })}
+        {messages.length === 0 && (
+          <div className="streaming-box__messages-list--empty">No data</div>
+        )}
+      </ul>
+    </div>
+  );
+};
 
 export default Chat;
