@@ -10,11 +10,21 @@ class Chat extends Component {
   };
 
   componentDidMount() {
-    this.timerID = setInterval(() => {
+    // Set Interval
+    this.timerID = setInterval(async () => {
       if (this.state.isStreaming) {
-        this.generateMessage();
+        try {
+          const message = await getMessage();
+          this.setState(prevState => ({
+            messages: [...prevState.messages, message],
+          }));
+        } catch (error) {
+          console.log(error);
+        }
       }
     }, 1000);
+
+    // Add listener
     document.addEventListener('keydown', this.handleKey);
   }
 
@@ -48,12 +58,16 @@ class Chat extends Component {
   }
 
   // fetch the new messages.
-  generateMessage = async () => {
-    const message = await getMessage();
-    this.setState(prevState => ({
-      messages: [...prevState.messages, message],
-    }));
-  };
+  // generateMessage = async () => {
+  //   try {
+  //     const message = await getMessage();
+  //     this.setState(prevState => ({
+  //       messages: [...prevState.messages, message],
+  //     }));
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
   // Handles the keystroke.
   handleKey = e => {
@@ -73,7 +87,9 @@ class Chat extends Component {
           {this.state.messages.map((message, index) => {
             return <Message {...message} key={index} />;
           })}
-          {this.state.messages.length == 0 && <div>No data</div>}
+          {this.state.messages.length === 0 && (
+            <div className="streaming-box__messages-list--empty">No data</div>
+          )}
         </ul>
       </div>
     );
