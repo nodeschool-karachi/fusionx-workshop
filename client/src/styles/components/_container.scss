@@ -1,0 +1,84 @@
+//////////////////////////////////////////////////
+//                                              //
+//  SCSS Fragment                               //
+//                                              //
+//                                              //
+//////////////////////////////////////////////////
+
+/**
+ * Pretty much every UI will need to be constrained by a container or a
+ * series of them (modifiers of the base container), e.g. a wider container,
+ * a narrower container, etc. Repeating the CSS of these crucial structural
+ * UI elements does not make for a robust, scalable, consistent, and
+ * maintainable UI. So we abstract that CSS out here.
+ *
+ * Container(s) can be used anywhere it makes sense to do so including within
+ * components. They are 100% wide until their `max-width` kicks in, they have
+ * default left and right gutters that equal the base number multiplied
+ * by 3, and are center aligned by default.
+ *
+ * Other styles cannot be applied to an element using a container. Container is
+ * a "Layout Module" therefore the Single Responsibility Principle and the
+ * Open/Close Principle strictly applies. So this would be invalid:
+ *
+    <div class="l-container  c-card">
+        […]
+    </div>
+ *
+ * Here we have wrongly applied a "Component" (`c-card`) to the same element as
+ * a "Layout Module", we've mixed concerns, this can result in this part of
+ * the UI being prone to breakages. The valid way to approach this would be:
+ *
+    <div class="l-container">
+        <div class="c-card">
+            […]
+        </div>
+    </div>
+ *
+ * ----------------------------------------------------------------------------
+ *
+ * Container is namespaced with "l" followed by one hyphen, like this:
+ *
+   l-container
+ *
+ * The "l" stands for "layout" as Container is a "Layout Module".
+ *
+ * ----------------------------------------------------------------------------
+ *
+ * @markup
+    <div class="l-container [modifier(s)]">
+        […]
+    </div>
+ */
+
+/**
+ * 1. Allows for the `<span>` element to be used.
+ */
+
+.l-container {
+  display: block; // [1]
+  width: auto;
+  height: auto;
+  margin: 0 auto;
+  position: relative;
+}
+
+/**
+ * Modifiers: full width.
+ */
+
+.l-container--full-width {
+  width: 100%;
+}
+
+.l-container--full-height {
+  height: 100%;
+}
+
+/**
+ * Modifiers: flex container.
+ */
+
+.l-container--flex {
+  display: flex;
+}
