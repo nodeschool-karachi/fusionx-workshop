@@ -1,4 +1,4 @@
-import Mock from 'mockjs';
+// import Mock from 'mockjs';
 
 // If you are not running api then you can easily fetch the data by simply uncommenting this function.
 // export const getMessage = () => {
