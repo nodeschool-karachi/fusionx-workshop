@@ -1,0 +1,23 @@
+.streaming-box {
+  &__messages-container {
+    height: 350px;
+  }
+  &__messages-list {
+    overflow: scroll;
+    padding: 10px;
+    position: relative;
+    height: 350px;
+    background: $g-light-grey;
+    &--empty {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      font-family: $g-font-family;
+      font-size: 18px;
+      color: $g-grey;
+      transition: $g-trans-base;
+    }
+  }
+}
