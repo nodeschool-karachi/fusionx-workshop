@@ -1,17 +1,17 @@
-import React, { Component } from "react";
-import MessagesContainer from "./messages_container/MessagesContainer.index";
-import SectionHeader from "./section_header/SectionHeader.index";
-import StreamingButton from "./streaming_button/StreamingButton.index";
+import React, { Component } from 'react';
+import MessagesContainer from './messages_container/MessagesContainer.index';
+import SectionHeader from './section_header/SectionHeader.index';
+import StreamingButton from './streaming_button/StreamingButton.index';
 // import Logo from "../logo/Logo.index";
-class App extends Component {
+class StreamingBox extends Component {
   state = {
-    isStreaming: false
+    isStreaming: false,
   };
 
   // Handles the stream.
   handleStreaming = e => {
     this.setState(prevState => ({
-      isStreaming: !prevState.isStreaming
+      isStreaming: !prevState.isStreaming,
     }));
   };
 
@@ -31,4 +31,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default StreamingBox;
