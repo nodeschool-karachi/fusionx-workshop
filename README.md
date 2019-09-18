@@ -9,6 +9,10 @@ The repository contains content/code for [the workshop happening at The NEST IO 
 
 This is a collaborative initiative of ReactKHI and NodeSchool Karachi.
 
+## Facing issues or have questions?
+
+Join our [NodeSchool Karachi Slack](https://join.slack.com/t/nodeschoolkarachi/shared_invite/enQtMzI0ODkyOTg1MzE0LTM4MDljODgxYTY1ZGQ2ZTBkNGJmZTg4YmUzNmEyOWE1OWFhMzdiNGQzY2U1ZDU0NDhhNjIyNzkxMjk4ZjEzZDk) to discuss.
+
 ## Installation & Initial Setup
 
 Please install [Git](https://git-scm.com/downloads) & [NodeJS](https://nodejs.org/en/download/) in your machine. Once done, open your terminal/command prompt & make sure you are at the root of this project. Then run the commands below:
@@ -19,6 +23,16 @@ Please install [Git](https://git-scm.com/downloads) & [NodeJS](https://nodejs.or
 git clone https://github.com/nodeschool-karachi/fusionx-workshop.git  # clone the repository
 
 cd ./fusionx-workshop  # navigate to project folder
+```
+
+### Create the .env file (Important for the React app)
+
+- Navigate to the `client` folder
+- Create a file named `.env` inside it (the `client` folder)
+- Put the following code in it:
+
+```env
+SKIP_PREFLIGHT_CHECK=true
 ```
 
 ### Install dependencies
